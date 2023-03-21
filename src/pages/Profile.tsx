@@ -4,10 +4,10 @@ import profileImg from "../assets/Jumping.png";
 import editIcon from "../assets/pencil-01.png";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../service/auth.service";
-import { UserContext } from "../App";
+// import { UserContext } from "../App";
 
 const Profile = () => {
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
   const navigate = useNavigate();
   const [name, setName] = useState<string>("John Doe");
   const [dob, setDob] = useState<string>("1 Jan 2002");

@@ -7,7 +7,7 @@ import DustbinGroup from "../components/DustbinGroup";
 import addGroupButton from "../assets/plus-square.png";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import EcosevaService from "../service/ecoseva.service";
+import EcosevaService from "../services/ecoseva.service";
 
 const dustbins = ["Dustbin 1", "Dustbin 2"];
 

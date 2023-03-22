@@ -3,7 +3,7 @@ import ProfilePageImage from "../assets/ProfilePageImage.png";
 import profileImg from "../assets/Jumping.png";
 import editIcon from "../assets/pencil-01.png";
 import { useNavigate } from "react-router-dom";
-import AuthService from "../service/auth.service";
+import AuthService from "../services/auth.service";
 // import { UserContext } from "../App";
 
 const Profile = () => {

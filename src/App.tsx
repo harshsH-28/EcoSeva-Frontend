@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import Axios from "axios";
-import AuthService from "./service/auth.service";
+import AuthService from "./services/auth.service";
 import Protected from "./Protected";
 
 interface User {
@@ -56,7 +56,7 @@ function App() {
       {/* <UserContext.Provider value={{ user }}> */}
       {user && <Navbar />}
       <Routes>
-        <Route path="/" element={user ? <Home /> : <Login />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/register" element={<SignUp />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/profile" element={<Profile />}></Route>

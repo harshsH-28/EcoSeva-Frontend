@@ -5,7 +5,7 @@ import loginPageImg from "../assets/Side Image.png";
 import orImg from "../assets/OR.png";
 import googleLogo from "../assets/Google.png";
 import Axios from "axios";
-import AuthService from "../service/auth.service";
+import AuthService from "../services/auth.service";
 
 function Login() {
   const navigate = useNavigate();

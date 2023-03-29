@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import { history } from "react-router-dom";
 import loginPageImg from "../assets/Side Image.png";
@@ -14,13 +14,19 @@ function Login() {
     password: "",
   });
 
+  useEffect(() => {
+    if (AuthService.getCurrentUser()) {
+      navigate("/");
+    }
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(user);
 
     const userData = await AuthService.login(user);
-    console.log(userData);
-    return navigate("/");
+    // console.log(userData);
+    navigate("/");
   };
 
   return (

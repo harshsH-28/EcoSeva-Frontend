@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import HomeImg from "../assets/HomeGif.gif";
 import Card from "../components/Card";
 import globe from "../assets/globe.gif";
@@ -6,8 +7,16 @@ import eco from "../assets/environmentGif.gif";
 import mobile from "../assets/mobile.gif";
 import Chat from "./Chat";
 import "aos/dist/aos.css";
+import AuthService from "../services/auth.service";
 
 function Home() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!AuthService.getCurrentUser()) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <div className="mb-24">
       <div className="flex justify-center items-center pl-20">

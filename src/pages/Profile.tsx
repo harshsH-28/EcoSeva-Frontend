@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import ProfilePageImage from "../assets/ProfilePageImage.png";
 import profileImg from "../assets/Jumping.png";
 import editIcon from "../assets/pencil-01.png";
@@ -15,9 +15,15 @@ const Profile = () => {
   const [email, setEmail] = useState<string>("sample@gmail.com");
   const [isEdit, setIsEdit] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (!AuthService.getCurrentUser()) {
+      navigate("/login");
+    }
+  }, []);
+
   const handleLogout = async () => {
     await AuthService.logout();
-    return navigate("/login");
+    navigate("/login");
   };
   return (
     <div className="flex justify-between">

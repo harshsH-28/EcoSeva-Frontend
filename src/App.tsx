@@ -41,15 +41,22 @@ function App() {
   const [isEdit, setIsEdit] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!user) {
-      setUser(AuthService.getCurrentUser());
-    }
-    console.log("user", user);
-  }, [isEdit]);
+    console.log("App.tsx useEffect");
 
-  window.addEventListener("storage", () => {
-    setIsEdit(!isEdit);
-  });
+    function handleStorageChange() {
+      let userData: User | null;
+      const userStr = localStorage.getItem("user");
+      if (userStr) userData = JSON.parse(userStr);
+      else userData = null;
+      setUser(userData);
+    }
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col justify-between">

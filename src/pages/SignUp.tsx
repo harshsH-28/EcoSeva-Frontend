@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SignupImg from "../assets/Side Image (1).png";
 import orImg from "../assets/OR.png";
 import googleLogo from "../assets/Google.png";
@@ -18,6 +18,12 @@ function SignUp() {
     password: "",
     confirmPassword: "",
   });
+
+  useEffect(() => {
+    if (AuthService.getCurrentUser()) {
+      navigate("/");
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

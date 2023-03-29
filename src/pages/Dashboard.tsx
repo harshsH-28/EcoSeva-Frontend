@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Grid from "../assets/Grid.png";
 import dashBoardImg from "../assets/Illustration 1.png";
 import pieChart from "../assets/Glance.png";
@@ -8,12 +9,20 @@ import addGroupButton from "../assets/plus-square.png";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import EcosevaService from "../services/ecoseva.service";
+import AuthService from "../services/auth.service";
 
 const dustbins = ["Dustbin 1", "Dustbin 2"];
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const percentage = 66;
   // const [dustbins, setDustbins] = useState([]);
+
+  useEffect(() => {
+    if (!AuthService.getCurrentUser()) {
+      navigate("/login");
+    }
+  }, []);
 
   // useEffect(() => {
   //   const getDustbins = async () => {
